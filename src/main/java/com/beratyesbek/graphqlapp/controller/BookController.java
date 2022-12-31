@@ -5,6 +5,7 @@ import com.beratyesbek.graphqlapp.models.Book;
 import com.beratyesbek.graphqlapp.repositories.AuthorRepository;
 import com.beratyesbek.graphqlapp.repositories.BookRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import java.util.*;
 
 @Controller
+@Slf4j
 @AllArgsConstructor
 public class BookController {
 
