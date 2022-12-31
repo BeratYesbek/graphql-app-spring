@@ -28,6 +28,26 @@ public class BookController {
         return bookRepository.save(book);
     }
 
+    @MutationMapping
+    public String deleteBook(@Argument int id) {
+        bookRepository.deleteById(id);
+        String message = "Book has been deleted successfully";
+        return message;
+    }
+
+    @MutationMapping
+    public Book updateBook(@Argument int id, @Argument String name, @Argument int pageCount, @Argument int authorId) {
+        Book book = bookRepository.findById(id).get();
+        if (book != null) {
+            book.setName(name);
+            book.setAuthor(Author.builder().id(authorId).build());
+            book.setPageCount(pageCount);
+            bookRepository.save(book);
+        }
+        return book;
+    }
+
+
     @QueryMapping
     public Book bookById(@Argument int id) {
         return bookRepository.findById(id).get();
